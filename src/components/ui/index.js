@@ -2,19 +2,20 @@ import styled from 'styled-components';
 
 
 const Wrapper = styled.div`
-    max-width: 1170px
-    margin: 50 auto;
-    
+    max-width: 1170px;
+    margin: 50px 20px;
+    object-fit: contain;
     position: ${({relative}) => (relative ? 'relative' : null)};
     height: ${({height}) => (height ? height : null) };
 `
 
 const Flex = styled.div`
-    dysplay: flex;
+    display: flex;
     width:${({width}) => ( width ? width : null) };
-    justify-content: ${({ justify }) => ( justify ? justify : null) };
-    align-items: ${({ align }) => ( align ? align : null) };
-    flex-direction: ${({ flex }) => (flex ? flex : null) };
+    justify-content: ${({ justify }) => ( justify ? justify : 'center') };
+    align-items: ${({ align }) => ( align ? align : 'center') };
+    flex-wrap: ${({ wrap = 'no-wrap' }) => wrap };
+    flex-direction: ${({ direction }) => (direction ? direction : 'row') };
     padding: ${({ padding }) => (padding ? padding : null) };
     margin: ${({ margin }) => (margin ? margin : null) };
     height: ${({ height }) => ( height ? height : null) };
@@ -32,8 +33,8 @@ const Title = styled.h2`
     color: #020106;
     padding: ${({ padding }) => (padding ? padding : null) };
     margin: ${({ margin }) => (margin ? margin : '0') };
-    border-left: ${({ withBorder }) => (withBorder ? withBorder : null) };
-    border-left: ${({ withBorder }) => (withBorder ? withBorder : null) };
+    border-left: ${({ withBorder }) => (withBorder ? "3px solid #E6110C" : null) };
+    padding-left: ${({ withBorder }) => (withBorder ? "15px" : null) };
 ` 
 
 const SubTitle = styled.h3`
@@ -66,17 +67,17 @@ const SubTitle = styled.h3`
 const Text = styled.p`
     font-family: Roboto;
     font-size:${({ size }) => (size ? size : '18px') };
-    font-weigth:${({ weigth }) => (weigth ? weigth : 400) };
-    font-size:${({ color }) => (color ? color : '#282828') };
+    font-weight:${({ weight }) => (weight ? weight : 400) };
+    color:${({ color }) => (color ? color : '#282828') };
     padding: ${({ padding }) => (padding ? padding : null) };
     margin: ${({ margin }) => (margin ? margin : '0') };
 `
 
-const Hr =styled.hr `
-    widh: 100%;
+const Hr =styled.hr`
+    width: 100%;
     margin: 20px 0;
     border-color: #B5B5B5;
-    border-bottom: none;
+    border-bottom: solid;
 `
 
 const Button = styled.button`
@@ -91,5 +92,16 @@ const Button = styled.button`
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    width: ${({width }) => (width ? width : "470px") };
+    color: ${({color }) => (color ? color : "#020106") };
+    background: ${({background }) => (background ? background : "#E6110C") };
 `
-export {Wrapper, Flex, Title, Text, SubTitle, Hr, Button};
+const Img=styled.img`
+    
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  
+`
+
+export {Wrapper, Flex, Title, Text, SubTitle, Hr, Button, Img};
