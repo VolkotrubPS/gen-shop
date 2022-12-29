@@ -3,12 +3,13 @@ import {Wrapper, Flex, Text, Hr, Button, Title} from "./../../components/ui"
 import Carousel from "./../../components/Carousel";
 
 import Image1 from '../../assets/Post-1.jpg';
-import Image2 from '../../assets/Post-1.jpg';
-import Image3 from '../../assets/Post-1.jpg';
-import Image4 from '../../assets/Post-1.jpg';
-import Image5 from '../../assets/Post-1.jpg';
-import Image6 from '../../assets/Post-1.jpg';
-import Image7 from '../../assets/Post-1.jpg';
+import Image2 from '../../assets/Post-2.jpg';
+import Image3 from '../../assets/Post-3.jpg';
+import Image4 from '../../assets/Post-4.jpg';
+import Image5 from '../../assets/Post-5.jpg';
+import Image6 from '../../assets/Post-6.jpg';
+import Image7 from '../../assets/Post-7.jpg';
+import Image8 from '../../assets/Post-8.jpg';
 
 function Product(){
     const images = [
@@ -18,7 +19,8 @@ function Product(){
         Image4,
         Image5,
         Image6,
-        Image7
+        Image7,
+        Image8
     ]
     return(
         <section>
@@ -35,7 +37,7 @@ function Product(){
                 <Flex gap = "30px">
                     <Flex flex={1}>
                         <Carousel>
-                            {images.map((image) => (<img src={image} key={image} alt={image} />))}
+                            {images.map((image) => (<img src={image} width="670px" key={image} alt={image} />))}
                         </Carousel>
                     </Flex>
                     <Flex 

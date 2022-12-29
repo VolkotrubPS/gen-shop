@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const SlideBtn = styled.button`
     border:none;
     background: none;
-    padding: 0;
+    padding:${({ padding }) => (padding ? padding : "auto")};
     cursor: pointer;
     outline:none;
-    z-idex:100;
+    z-index:150;
 
     position: absolute;
     top:50%;
@@ -24,6 +24,7 @@ export const Arrow = styled.div`
     border-width: 0 0 2px 2px;
     border-color: white;
     transform: rotate(45deg);
+   
 
 `;
 
