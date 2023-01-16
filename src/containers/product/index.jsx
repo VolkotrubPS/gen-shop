@@ -1,6 +1,9 @@
 import React from 'react';
 import {Wrapper, Flex, Text, Hr, Button, Title} from "./../../components/ui"
 import Carousel from "./../../components/Carousel";
+import ColorPicker from "./../../components/ColorPicker";
+import PowerPicker from "./../../components/PowerPicker";
+import CountPicker from "./../../components/CountPicker";
 
 import Image1 from '../../assets/Post-1.jpg';
 import Image2 from '../../assets/Post-2.jpg';
@@ -11,8 +14,32 @@ import Image6 from '../../assets/Post-6.jpg';
 import Image7 from '../../assets/Post-7.jpg';
 import Image8 from '../../assets/Post-8.jpg';
 
-function Product(){
-    const images = [
+const colors = [
+    {
+        id: 1,
+        color: "#E6110C",
+    },
+    {
+        id:2,
+        color: "#FFA500"
+    },
+    {
+        id: 3,
+        color: "#282828"
+    },
+];
+
+const powers = [
+    {
+        id: 1,
+        label: "Base (2kW)"
+    },
+    {
+        id: 2,
+        label: "Optimal (4.5kW)"
+    }
+];
+const images = [
         Image1,
         Image2,
         Image3,
@@ -22,6 +49,8 @@ function Product(){
         Image7,
         Image8
     ]
+function Product(){
+    
     return(
         <section>
             <Wrapper>
@@ -64,13 +93,15 @@ function Product(){
                         </Text>
                         <Hr/>
                         <Flex width="100%" align="flex-start">
-                            <Flex flex={1} justify="flex-start">ColorPicker
+                            <Flex flex={1} justify="flex-start">
+                                <ColorPicker items={colors}/>
                             </Flex>
                         
-                        <Flex flex={1}>SizePicker
+                        <Flex flex={1}>
+                            <PowerPicker items={powers}/>
                         </Flex>
                     </Flex>
-                    CountPicker
+                    <CountPicker/>
                     <Button>Оформить заказ</Button>
 
                     </Flex>
