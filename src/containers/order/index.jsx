@@ -1,8 +1,14 @@
 import React, {useContext,useState,useEffect} from 'react';
+
+import Modal from 'react-bootstrap/Modal';
+
 import Context from './../../containers/context/context';
 
-import { Wrapper, Title, Flex,Button, Text } from '../../components/ui';
+import { Wrapper, Title, Flex, Button, Text,Hr } from '../../components/ui';
 import {Input, Label} from './styled';
+
+
+
 
 
 function Order() {
@@ -17,9 +23,12 @@ function Order() {
      const [telError, setTelError] = useState('"Телефон" не может быть пустым');
      const [formValid, setFormValid]=useState(false)
      const [submitError,setSubmitError]= useState('')
-     const { power, setPower } = useContext(Context);
-     const { count, setCount } = useContext(Context);
-     const { color, setColor } = useContext(Context);
+     const { power } = useContext(Context);
+     const { count} = useContext(Context);
+     const { color} = useContext(Context);
+     const [show, setShow] = useState(false);
+
+
      useEffect(() => {
         if(fioError || emailError || telError){
             setFormValid(false)
@@ -28,6 +37,8 @@ function Order() {
         }
         
      }, [fioError,emailError,telError]);
+
+
      const emailHandler = (e) =>{
         setEmail(e.target.value)
         const re = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/
@@ -37,7 +48,8 @@ function Order() {
         }else {
             setEmailError('')
         }
-    }  
+    } 
+    
      const isNumber = (e)=>{
         setTel(e.target.value)
         const regV = /^([+]?[0-9\s-\(\)]{5,25})*$/i
@@ -48,6 +60,8 @@ function Order() {
             setTelError('')
         }
      }
+
+
      const isFio = (e)=>{
         setFio(e.target.value)
         const regV =/^[a-zA-Zа-яёА-ЯЁ]+$/u
@@ -73,25 +87,24 @@ function Order() {
         }
         }
 
+        
+          
+          
+        const handleClose = () => setShow(false);
         const submitClick = (e) =>{
             if(!formValid){
                 setSubmitError('Заполните необходимые данные')
             }else{
-                setSubmitError('')
-                alert(` Отправлены данные для просчета стоимости   с
-                ФИО: ${fio}
-                Почта: ${email}
-                Телефон: ${tel}
-                Количество: ${count}
-                Цвет: ${color}
-                Мощность: ${power}`)
-
+                setSubmitError('');
+                setShow(true);
+              
             }
         }
 
     
 
-    return(<section>
+    return(
+    <section>
         <Wrapper>
             <Title withBorder="70px 0 30px">
                 УСПЕЙ СДЕЛАТЬ ЗАКАЗ
@@ -124,6 +137,33 @@ function Order() {
             </Text>}
             </Flex>
         </Wrapper>
+        <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Проверьте данные заказа</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+            <Text><span>Вы отправляете запрос на модель ALLFUEL EX 7.0 </span></Text>
+            <Hr/> 
+            <Text><span> ФИО: {fio}</span></Text>
+            <Text><span> E-mail: {email}</span></Text>
+            <Text><span> Телефон: {tel}</span></Text>
+            <Text><span> Цвет: {color}</span></Text>
+            <Text><span> Мощность:{power}</span></Text>
+            <Text><span> Количество:{count}</span></Text>
+            
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button  onClick={handleClose}>
+            Отправить
+          </Button>
+          <Button  onClick={handleClose}>
+            Отмена
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      
+
     
     </section>
 )};

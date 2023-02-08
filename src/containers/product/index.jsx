@@ -49,6 +49,12 @@ const images = [
         Image7,
         Image8
     ]
+    function scrollWin(){ 
+    window.scrollTo({
+        top: 3000,
+        left: 0,
+        behavior: 'smooth'
+      })}
 function Product(){
     
     return(
@@ -102,7 +108,7 @@ function Product(){
                         </Flex>
                     </Flex>
                     <CountPicker/>
-                    <Button>Оформить заказ</Button>
+                    <Button onClick={scrollWin}>Оформить заказ</Button>
 
                     </Flex>
                 </Flex>

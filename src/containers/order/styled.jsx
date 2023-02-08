@@ -1,5 +1,15 @@
 import styled from 'styled-components';
 
+export const Modal = styled.div`
+ position: fixed;
+  top:80px;
+  left:0;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  z-index: 1;
+`;
+
 export const Label = styled.label`
    font-family: Roboto;
     font-size:${({ size }) => (size ? size : '18px') };
