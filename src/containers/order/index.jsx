@@ -52,7 +52,7 @@ function Order() {
     
      const isNumber = (e)=>{
         setTel(e.target.value)
-        const regV = /^([+]?[0-9\s-\(\)]{5,25})*$/i
+        const regV = /^([+]?[0-9\s-\\(\\)]{5,25})*$/i
         if (!regV.test(String(e.target.value).toLowerCase())){
             setTelError('Некоректный Телефон')
            
@@ -84,6 +84,7 @@ function Order() {
             case 'tel':
                 setTelDirty(true)
                 break
+            default:
         }
         }
 

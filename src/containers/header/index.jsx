@@ -1,5 +1,5 @@
 import React from 'react'
-import { Wrapper, Flex, Button,Text} from './../../components/ui'
+import { Wrapper, Flex, Button} from './../../components/ui'
 import { HeaderSC, Absolute, HeaderText } from './styled';
 import { ReactComponent as Logo } from './../../assets/logo1.svg';
 function scrollWin(){ 
